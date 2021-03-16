@@ -1,0 +1,5 @@
+quick sort
+binary search
+floyd cycle detection
+segment tree
+Segment tree lazy propagation
