@@ -37,7 +37,7 @@ public class JeffAndPeriods352B {
 		}
 
 		int count = 0;
-		for(int i=0;i<100000;i++){
+		for(int i=0;i<=100000;i++){
 			if(lastValueArray[i] != -1){
 				if(differenceValueArray[i] != -2){
 					count = count+1;
@@ -46,7 +46,7 @@ public class JeffAndPeriods352B {
 		}
 		System.out.println(count);
 
-		for(int i=0;i<100000;i++){
+		for(int i=0;i<=100000;i++){
 			if(lastValueArray[i] != -1){
 				if(differenceValueArray[i] != -2){
 					System.out.println(i + " " + ( differenceValueArray[i] == -1 ? 0 : differenceValueArray[i]));
