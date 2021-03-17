@@ -1,6 +1,13 @@
 package CodeForces;
 
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 /**
  * @author Syed Ali.
@@ -10,8 +17,11 @@ import java.util.*;
 public class JeffAndPeriods352B {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int n = scanner.nextInt();
+		InputStream inputStream = System.in;
+		OutputStream outputStream = System.out;
+		InputReader in = new InputReader(inputStream);
+		PrintWriter out = new PrintWriter(outputStream);
+		int n = in.nextInt();
 
 		int[] lastValueArray = new int[100001];
 		Arrays.fill(lastValueArray,-1);
@@ -19,7 +29,7 @@ public class JeffAndPeriods352B {
 		Arrays.fill(differenceValueArray,-1);
 
 		for(int i=0;i<n;i++){
-			int x = scanner.nextInt();
+			int x = in.nextInt();
 			if(lastValueArray[x] == -1){
 				lastValueArray[x] = i;
 			}else{
@@ -37,21 +47,51 @@ public class JeffAndPeriods352B {
 		}
 
 		int count = 0;
-		for(int i=0;i<=100000;i++){
+		for(int i=0;i<=100000;++i){
 			if(lastValueArray[i] != -1){
 				if(differenceValueArray[i] != -2){
-					count = count+1;
+					++count;
 				}
 			}
 		}
-		System.out.println(count);
+		out.println(count);
 
-		for(int i=0;i<=100000;i++){
+		for(int i=0;i<=100000;++i){
 			if(lastValueArray[i] != -1){
 				if(differenceValueArray[i] != -2){
-					System.out.println(i + " " + ( differenceValueArray[i] == -1 ? 0 : differenceValueArray[i]));
+					out.println(i + " " + ( differenceValueArray[i] == -1 ? 0 : differenceValueArray[i]));
 				}
 			}
+		}
+		out.close();
+	}
+}
+
+class InputReader {
+	private BufferedReader reader;
+	private StringTokenizer stt;
+
+	public InputReader(InputStream stream) {
+		reader = new BufferedReader(new InputStreamReader(stream));
+	}
+
+	public String nextLine() {
+		try {
+			return reader.readLine();
+		} catch (IOException e) {
+			return null;
 		}
 	}
+
+	public String nextString() {
+		while (stt == null || !stt.hasMoreTokens()) {
+			stt = new StringTokenizer(nextLine());
+		}
+		return stt.nextToken();
+	}
+
+	public int nextInt() {
+		return Integer.parseInt(nextString());
+	}
+
 }
