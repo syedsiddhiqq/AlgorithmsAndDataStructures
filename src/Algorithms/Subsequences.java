@@ -8,6 +8,8 @@ import java.util.*;
  */
 public class Subsequences {
 
+	static List<String> subsequences = new ArrayList<>();
+
 	static boolean checkPalindrome(String s) {
 		for (int i = 0, j = s.length() - 1; i <= j; i++, j--) {
 			if (s.charAt(i) != s.charAt(j)) return false;
@@ -15,14 +17,13 @@ public class Subsequences {
 		return true;
 	}
 
-	private static int findsubsequences(String s,String ans,int max) {
+	private static int findsubsequences(String s,String ans) {
 		if (s.length() == 0) {
-			if (checkPalindrome(ans)) {
-				max = Math.max(max,ans.length());
-			}
-			return max;
+			subsequences.add(ans);
 		}
-		return Math.max(findsubsequences(s.substring(1), ans + s.charAt(0),max),findsubsequences(s.substring(1), ans,max));
+		findsubsequences(s.substring(1), ans + s.charAt(0));
+		findsubsequences(s.substring(1), ans);
+		return 0;
 	}
 
 	public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class Subsequences {
 				char ch = (char)( 'a' + temp - 1);
 				s.append(ch);
 			}
-			System.out.println(findsubsequences(s.toString(), "",max));
+//			System.out.println(findsubsequences(s.toString(), "",max));
 		}
 	}
 
