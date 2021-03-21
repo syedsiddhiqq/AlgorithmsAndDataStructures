@@ -15,6 +15,44 @@ import java.util.StringTokenizer;
  */
 public class BinaryRemovals {
 
+	static	class InputReader {
+		private BufferedReader reader;
+		private StringTokenizer stt;
+
+		public InputReader() {
+			reader = new BufferedReader(new InputStreamReader(System.in));
+		}
+
+		public String nextLine() {
+			try {
+				return reader.readLine();
+			} catch (IOException e) {
+				return null;
+			}
+		}
+
+		public String nextString() {
+			while (stt == null || !stt.hasMoreTokens()) {
+				stt = new StringTokenizer(nextLine());
+			}
+			return stt.nextToken();
+		}
+
+		public int nextInt() {
+			return Integer.parseInt(nextString());
+		}
+
+	}
+
+	private static void findsubsequences(String s,String ans) {
+		if (s.length() == 0) {
+
+			return;
+		}
+		findsubsequences(s.substring(1), ans + s.charAt(0));
+		findsubsequences(s.substring(1), ans);
+	}
+
 	static boolean isSorted(char[] str)
 	{
 		// length of the string
@@ -49,38 +87,19 @@ public class BinaryRemovals {
 	}
 
 	public static void main(String[] args) {
-		InputStream inputStream = System.in;
-		OutputStream outputStream = System.out;
-		InputReader in = new InputReader(inputStream);
-		PrintWriter out = new PrintWriter(outputStream);
+
+		InputReader in = new InputReader();
+		PrintWriter out = new PrintWriter(System.out);
 
 		int t = in.nextInt();
 
 		while(t-->0){
 			String s = in.nextString();
 			char[] str = s.toCharArray();
-			char[] sortedStr = s.toCharArray();
-			Arrays.sort(sortedStr);
-			int[] indexOfZero = new int[101];
-			int[] indexOfOnes = new int[101];
-			Arrays.fill(indexOfOnes,-1);
-			Arrays.fill(indexOfZero,-1);
 			if(isSorted(str)){
 				out.println("YES");
 			}else{
-//				for(int i=0;i<str.length;i++) newArr[i] = str[i];
-
-				for(int i=0;i<str.length;i++){
-					char[] newArr = new char[str.length];
-					for(int k=0;k<str.length;k++) newArr[k] = str[k];
-					newArr[i] = '-';
-					if(str[i] == '1'){
-						for(int j=i+1;j<str.length;j++){
-
-						}
-					}
-				}
-
+//
 			}
 
 		}
@@ -90,32 +109,3 @@ public class BinaryRemovals {
 
 
 
-
-class InputReader {
-	private BufferedReader reader;
-	private StringTokenizer stt;
-
-	public InputReader(InputStream stream) {
-		reader = new BufferedReader(new InputStreamReader(stream));
-	}
-
-	public String nextLine() {
-		try {
-			return reader.readLine();
-		} catch (IOException e) {
-			return null;
-		}
-	}
-
-	public String nextString() {
-		while (stt == null || !stt.hasMoreTokens()) {
-			stt = new StringTokenizer(nextLine());
-		}
-		return stt.nextToken();
-	}
-
-	public int nextInt() {
-		return Integer.parseInt(nextString());
-	}
-
-}
