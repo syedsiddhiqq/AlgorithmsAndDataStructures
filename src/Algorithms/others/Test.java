@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.others;
 
 /**
  * @author Syed Ali.
