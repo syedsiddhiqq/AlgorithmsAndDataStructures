@@ -1,20 +1,18 @@
-package CodeForces.practice.cr697;
+//package CodeForces.practice.Graphs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
  * @author Syed Ali.
- * @createdAt 24/03/2021, Wednesday, 11:05
+ * @createdAt 25/03/2021, Thursday, 01:55
  */
-public class BallInBerland {
+public class LongJumps {
+
 	static class Fs {
 		private BufferedReader bufferedReader;
 		private StringTokenizer stt;
@@ -51,45 +49,33 @@ public class BallInBerland {
 	static Fs fs = new Fs();
 
 	static void solve(){
-		int a = fs.nextInt();
-		int b = fs.nextInt();
-		int k = fs.nextInt();
-		int[] arrA = new int[k];
-		int[] arrB = new int[k];
-		Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
-		for(int i=0;i<k;i++){
-			arrA[i] = fs.nextInt();
+		int n = fs.nextInt();
+		int[] arr = new int[n+1];
+
+		List<List<Integer>> adjacency = new ArrayList<>();
+
+		for(int i=0;i<n;i++){
+			arr[i] = fs.nextInt();
 		}
 
-		for(int i=0;i<k;i++){
-			arrB[i] = fs.nextInt();
-		}
-
-		// Creating the adjacency List.
-		for(int i=0;i<k;i++){
-			for(int j=0;j<k;j++){
-				if(adjacencyList.containsKey(arrA[i])){
-					if(!adjacencyList.get(arrA[i]).contains(arrB[j])){
-						adjacencyList.get(arrA[i]).add(arrB[j]);
-					}
-				}else{
-					List<Integer> arr = new ArrayList<>();
-					arr.add(arrB[i]);
-					adjacencyList.put(arrA[i],arr);
-				}
+		int max = Integer.MIN_VALUE;
+		int[] dp = new int[n];
+		for(int i=n-1; i >=0 ;i--){
+			dp[i] = arr[i];
+			if(i + arr[i] < n ){
+				dp[i] += dp[i + arr[i]];
 			}
+			max = Math.max(max,dp[i]);
 		}
-
+		System.out.println(max);
 
 	}
 
 	public static void main(String[] args) {
-		List[] arr  = new List[5];
-		arr[0].add(5);
 		int t = fs.nextInt();
-
 		while(t-->0){
 			solve();
 		}
 	}
+
 }
