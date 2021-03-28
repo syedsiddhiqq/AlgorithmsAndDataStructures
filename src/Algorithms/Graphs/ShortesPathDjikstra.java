@@ -110,27 +110,9 @@ public class ShortesPathDjikstra {
 		dijkstra(numberOfNodes,nodes,pq
 				,distance,processed,parent,0);
 
-//		System.out.println("The shorted path from node :");
-//		for (int i = 1; i <= numberOfNodes; i++)
-//			System.out.println(1 + " to " + i + " is "
-//					+ distance[i]);
-
-		if(distance[numberOfNodes-1] == Integer.MAX_VALUE) {
-			System.out.println(-1);
-		}
-		else {
-			ArrayList<Integer> path = new ArrayList<>();
-			int now = numberOfNodes - 1;
-			while(now!=0) {
-				path.add(now + 1);
-				now = parent[now];
-			}
-			Collections.reverse(path);
-			System.out.print(path.get(0));
-			for(int i = 1; i<path.size(); i++) {
-				System.out.print(" "+path.get(i));
-			}
-			System.out.println();
-		}
+		System.out.println("The shorted path from node :");
+		for (int i = 1; i <= numberOfNodes; i++)
+			System.out.println(1 + " to " + i + " is "
+					+ distance[i]);
 	}
 }
