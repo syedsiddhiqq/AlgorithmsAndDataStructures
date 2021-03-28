@@ -54,41 +54,13 @@ public class BallInBerland {
 		int a = fs.nextInt();
 		int b = fs.nextInt();
 		int k = fs.nextInt();
-		int[] arrA = new int[k];
-		int[] arrB = new int[k];
-		Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
-		for(int i=0;i<k;i++){
-			arrA[i] = fs.nextInt();
-		}
-
-		for(int i=0;i<k;i++){
-			arrB[i] = fs.nextInt();
-		}
-
-		// Creating the adjacency List.
-		for(int i=0;i<k;i++){
-			for(int j=0;j<k;j++){
-				if(adjacencyList.containsKey(arrA[i])){
-					if(!adjacencyList.get(arrA[i]).contains(arrB[j])){
-						adjacencyList.get(arrA[i]).add(arrB[j]);
-					}
-				}else{
-					List<Integer> arr = new ArrayList<>();
-					arr.add(arrB[i]);
-					adjacencyList.put(arrA[i],arr);
-				}
-			}
-		}
 
 
 	}
 
 	public static void main(String[] args) {
-		List[] arr  = new List[5];
-		arr[0].add(5);
 		int t = fs.nextInt();
-
-		while(t-->0){
+		while(t-- > 0){
 			solve();
 		}
 	}
