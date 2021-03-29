@@ -1,4 +1,4 @@
-//package CodeForces.practice.virtualcontests.div3_710;
+package CodeForces.practice.virtualcontests.div3_710;
 
 import java.util.Collections;
 import java.util.HashMap;
