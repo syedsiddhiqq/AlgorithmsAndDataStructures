@@ -8,3 +8,8 @@ https://www.geeksforgeeks.org/number-subsequences-string-divisible-n/
 
 // Graphs
 bipartite graph problems
+
+
+
+// Interesting math probs
+https://www.spoj.com/problems/GEEKOUNT/
