@@ -37,4 +37,6 @@ public class Fs {
 		return Integer.parseInt(nextString());
 	}
 
+	public long nextLong(){ return Long.parseLong(nextString()); }
+
 }
