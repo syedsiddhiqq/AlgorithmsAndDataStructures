@@ -13,3 +13,6 @@ bipartite graph problems
 
 // Interesting math probs
 https://www.spoj.com/problems/GEEKOUNT/
+
+
+Math - 9 of 50
