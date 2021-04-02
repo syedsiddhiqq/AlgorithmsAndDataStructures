@@ -1,4 +1,4 @@
-package CodeForces.RoadMap.Graphs.SPOJ;
+package Algorithms.sorting;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -8,9 +8,10 @@ import java.util.Stack;
 
 /**
  * @author Syed Ali.
- * @createdAt 03/04/2021, Saturday, 02:33
+ * @createdAt 03/04/2021, Saturday, 03:06
  */
-public class MakeTree {
+public class TopologicalSortUsingStack {
+
 	static Scanner scanner = new Scanner(System.in);
 
 	/**
@@ -52,8 +53,6 @@ public class MakeTree {
 		stack.push(src);
 	}
 
-
-
 	public static void main(String[] args) {
 		// number of vertex
 		int n = scanner.nextInt();
@@ -69,15 +68,11 @@ public class MakeTree {
 
 		// Construction of adj list
 		for (int i = 1; i <= m; i++) {
-			int w = scanner.nextInt();
-			for(int j=0;j<w;j++){
-				int y = scanner.nextInt();
-				nodes[i].adj.add(new Node(y));
-				++nodes[y].inDegree;
-			}
+			int x = scanner.nextInt();
+			int y = scanner.nextInt();
+			nodes[x].adj.add(new Node(y));
+			++nodes[y].inDegree;
 		}
-
-//		int[] resultArr = new int[n+1];
 
 		Stack<Integer> result = new Stack<>();
 
@@ -87,17 +82,16 @@ public class MakeTree {
 			}
 		}
 
-		int prev = 0;
-		int[] parent = new int[n+1];
 
-		while (!result.empty()) {
-			int node = result.pop();
-			parent[node] = prev;
-			prev = node;
+		while(!result.isEmpty()){
+			System.out.println(result.pop());
 		}
 
-		for (int i = 1; i <= n; ++i) {
-			System.out.println(parent[i]);
-		}
+//		topologicalSort(nodes,n);
+//
+//		// Sorted vertices.
+//		for (int i = 0; i < sortedVertices.size(); i++) {
+//			System.out.print(sortedVertices.get(i) + " ");
+//		}
 	}
 }
