@@ -67,9 +67,11 @@ public class TopologicalSortUsingStack {
 		int m = scanner.nextInt();
 
 		// Construction of adj list
-		for (int i = 1; i <= m; i++) {
+		while(true) {
 			int x = scanner.nextInt();
 			int y = scanner.nextInt();
+			if(x == 0 && y == 0)
+				break;
 			nodes[x].adj.add(new Node(y));
 			++nodes[y].inDegree;
 		}
