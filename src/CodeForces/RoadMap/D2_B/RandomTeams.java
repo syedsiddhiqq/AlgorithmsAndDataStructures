@@ -43,7 +43,6 @@ public class RandomTeams {
 	static Fs fs = new Fs();
 
 	static int combinations(int n) {
-		if(n == 1) return 1;
 		--n;
 		return n * (n+1)/2;
 	}
@@ -56,10 +55,7 @@ public class RandomTeams {
 			System.out.println(combinations(n) + " " + combinations(n));
 		} else {
 			int kmax = combinations(n - (teams - 1));
-			int kmin;
-			if(n % 2 == 0){
-				kmin = n / 2;
-			}
+			int kmin = teams/2 + combinations((n - ((teams/2 ) * 2 + teams % 2)));
 			System.out.println(kmin + " " + kmax);
 		}
 	}
