@@ -37,17 +37,17 @@ public class GroupAnagrams {
 //		}
 
 		public boolean isAnagram(String s, String t) {
+			if(s.length() != t.length()){
+				return false;
+			}
+
 			char[] str1 = s.toCharArray();
 			Arrays.sort(str1);
 
 			char[] str2 = t.toCharArray();
 			Arrays.sort(str2);
 
-			StringBuilder s1 = new StringBuilder();
-			s1.append(str1);
-			StringBuilder s2 = new StringBuilder();
-			s2.append(str2);
-			return s1.toString().equals(s2.toString());
+			return String.valueOf(str1).equals(String.valueOf(str2));
 		}
 
 		public List<List<String>> groupAnagrams(String[] strs) {
