@@ -2,9 +2,7 @@ package LeetCode.TopInterviewQuestions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Syed Ali.
@@ -18,9 +16,33 @@ public class Subsets {
 		return list;
 	}
 
-	static void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
+	static  public List<List<Integer>> subsetsWithDup(int[] num) {
+		List<List<Integer>> result = new ArrayList<>();
+		List<Integer> empty = new ArrayList<>();
+		result.add(empty);
+		Arrays.sort(num);
+
+		for (int i = 0; i < num.length; i++) {
+			int dupCount = 0;
+			while( ((i+1) < num.length) && num[i+1] == num[i]) {
+				dupCount++;
+				i++;
+			}
+			int prevNum = result.size();
+			for (int j = 0; j < prevNum; j++) {
+				List<Integer> element = new ArrayList<>(result.get(j));
+				for (int t = 0; t <= dupCount; t++) {
+					element.add(num[i]);
+					result.add(new ArrayList<>(element));
+				}
+			}
+		}
+		return result;
+	}
+
+	static void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int start) {
 		list.add(new ArrayList<>(tempList));
-		for(int i = start; i < nums.length; i++){
+		for (int i = start; i < nums.length; i++) {
 			tempList.add(nums[i]);
 			backtrack(list, tempList, nums, i + 1);
 			tempList.remove(tempList.size() - 1);
@@ -28,7 +50,7 @@ public class Subsets {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = {1,2,3};
-		subsets(nums);
+		int[] nums = {1, 2, 2};
+		subsetsWithDup(nums);
 	}
 }
