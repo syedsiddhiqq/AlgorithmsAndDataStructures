@@ -12,6 +12,7 @@ public class Subsets {
 	static List<List<Integer>> subsets(int[] nums) {
 		List<List<Integer>> list = new ArrayList<>();
 		Arrays.sort(nums);
+//		list.stream().mapToInt(i->i).sum();
 		backtrack(list, new ArrayList<>(), nums, 0);
 		return list;
 	}
