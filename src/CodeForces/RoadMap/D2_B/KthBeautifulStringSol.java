@@ -1,4 +1,4 @@
-package CodeForces.RoadMap.D2_B;
+//package CodeForces.RoadMap.D2_B;
 
 import java.util.ArrayList;
 import java.util.Arrays;
