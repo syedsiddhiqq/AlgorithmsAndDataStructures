@@ -1,13 +1,16 @@
-package CodeForces.RoadMap.D2_C1;
+//package CodeForces.RoadMap.D2_C1;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 /**
  * @author Syed Ali.
- * @createdAt 16/04/2021, Friday, 18:39
+ * @createdAt 17/04/2021, Saturday, 00:03
  */
-public class AliceBoBAndCandies {
+public class MereArray {
 	static class Fs {
 		private BufferedReader reader;
 		private StringTokenizer stt;
@@ -44,35 +47,25 @@ public class AliceBoBAndCandies {
 
 	static void solve() {
 		int n = fs.nextInt();
-		Deque<Integer> q = new LinkedList<>();
+		long[] orgArr = new long[n];
+		long[] arr = new long[n];
+		long min = Integer.MAX_VALUE;
 		for (int i = 0; i < n; i++) {
-			q.add(fs.nextInt());
+			long temp = fs.nextLong();
+			orgArr[i] = temp;
+			arr[i] = temp;
+
+			min = Math.min(min, arr[i]);
 		}
 
-		boolean flag = false;
-		int moves = 1;
-		int alice = 0;
-		int bob = 0;
-		alice = q.removeFirst();
-		int previous = alice;
-		while (!q.isEmpty()) {
-			int sum = 0;
-			while (!q.isEmpty() && sum <= previous) {
-				if (flag) {
-					int temp = q.removeFirst();
-					sum += temp;
-					alice += temp;
-				} else {
-					int temp = q.removeLast();
-					sum += temp;
-					bob += temp;
-				}
+		Arrays.sort(arr);
+		for (int i = 0; i < n; i++) {
+			if (orgArr[i] != arr[i] && orgArr[i] % min != 0) {
+				System.out.println("NO");
+				return;
 			}
-			++moves;
-			previous = sum;
-			flag = !flag;
 		}
-		System.out.println(moves + " " + alice + " " + bob);
+		System.out.println("YES");
 	}
 
 	public static void main(String[] args) {
