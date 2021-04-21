@@ -1,4 +1,4 @@
-//package CodeForces.RoadMap.D2_A;
+package CodeForces.RoadMap.D2_A;
 
 import java.util.Scanner;
 /**
