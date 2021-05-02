@@ -1,0 +1,243 @@
+Oops:
+======
+https://whimsical.com/object-oriented-programming-cheatsheet-by-love-babbar-YbSgLatbWQ4R5paV7EgqFw
+https://www.javatpoint.com/java-oops-concepts
+
+An object in Java is the physical as well as a logical entity, whereas, a class in Java is a logical entity only.
+
+What is an object in Java
+object in Java
+An entity that has state and behavior is known as an object e.g., chair, bike, marker, pen, table, car, etc. It can be physical or logical (tangible and intangible). The example of an intangible object is the banking system.
+
+An object has three characteristics:
+
+State: represents the data (value) of an object.
+Behavior: represents the behavior (functionality) of an object such as deposit, withdraw, etc.
+Identity: An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. However, it is used internally by the JVM to identify each object uniquely.
+Characteristics of Object in Java
+For Example, Pen is an object. Its name is Reynolds; color is white, known as its state. It is used to write, so writing is its behavior.
+
+https://www.c-sharpcorner.com/blogs/real-life-examples-of-object-oriented-programming1
+Object has characteristics as :
+
+State
+Behavior
+Identity
+Responsibility
+
+An object is an instance of a class. A class is a template or blueprint from which objects are created. So, an object is the instance(result) of a class.
+
+Object Definitions:
+
+An object is a real-world entity.
+An object is a runtime entity.
+The object is an entity which has state and behavior.
+The object is an instance of a class.
+
+
+
+Inheritance:
+==============
+
+Example :
+Parent class : Employee
+Sub class can be Programmer, Hr, ProductManager etc.
+
+Types?:
+=======
+single, multilevel and hierarchical, multiple [not supported in java why ? To reduce the complexity and simplify the language, multiple inheritance is not supported in java.]
+ and hybrid
+
+
+Polymorphism:
+==============
+Polymorphism in Java is a concept by which we can perform a single action in different ways.
+
+There are two types of polymorphism in Java:
+1. compile-time polymorphism and
+2. runtime polymorphism
+
+Eg 1: RunTime Polymorphism
+class Bike{
+  void run(){System.out.println("running");}
+}
+class Splendor extends Bike{
+  void run(){System.out.println("running safely with 60km");}
+
+  public static void main(String args[]){
+    Bike b = new Splendor();//upcasting
+    b.run();
+  }
+}
+
+Eg: 2
+class Bank{
+float getRateOfInterest(){return 0;}
+}
+class SBI extends Bank{
+float getRateOfInterest(){return 8.4f;}
+}
+class ICICI extends Bank{
+float getRateOfInterest(){return 7.3f;}
+}
+class AXIS extends Bank{
+float getRateOfInterest(){return 9.7f;}
+}
+
+Abstraction  in java:
+====================
+A class which is declared with the abstract keyword is known as an abstract class in Java.
+It can have abstract and non-abstract methods (method with the body).
+
+What is abstraction?
+====================
+Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+
+Points to Remember
+===================
+    An abstract class must be declared with an abstract keyword.
+    It can have abstract and non-abstract methods.
+    It cannot be instantiated.
+    It can have constructors and static methods also.
+    It can have final methods which will force the subclass not to change the body of the method.
+
+Eg:
+abstract class A{}
+
+abstract void printStatus();//no method body and abstract
+
+abstract class Bike{
+  abstract void run();
+}
+
+class Honda4 extends Bike{
+void run(){System.out.println("running safely");}
+public static void main(String args[]){
+ Bike obj = new Honda4();  //upcasting
+ obj.run();
+}
+}
+
+abstract class Bank{
+abstract int getRateOfInterest();
+}
+class SBI extends Bank{
+int getRateOfInterest(){return 7;}
+}
+class PNB extends Bank{
+int getRateOfInterest(){return 8;}
+}
+
+class TestBank{
+public static void main(String args[]){
+Bank b;
+b=new SBI();
+System.out.println("Rate of Interest is: "+b.getRateOfInterest()+" %");
+b=new PNB();
+System.out.println("Rate of Interest is: "+b.getRateOfInterest()+" %");
+}}
+
+
+Encapsulation in java
+=====================
+Encapsulation in Java is a process of wrapping code and data together into a single unit, for example, a capsule which is mixed of several medicines.
+
+The Java Bean class is the example of a fully encapsulated class.
+
+Advantage of Encapsulation in Java
+==================================
+By providing only a setter or getter method, you can make the class read-only or write-only. In other words, you can skip the getter or setter methods.
+
+It provides you the control over the data. Suppose you want to set the value of id which should be greater than 100 only, you can write the logic inside the setter method. You can write the logic not to store the negative numbers in the setter methods.
+
+It is a way to achieve data hiding in Java because other class will not be able to access the data through the private data members.
+
+The encapsulate class is easy to test. So, it is better for unit testing.
+
+The standard IDE's are providing the facility to generate the getters and setters. So, it is easy and fast to create an encapsulated class in Java.
+
+
+
+Some other concepts in Oops: [Not that important]
+=================================================
+Coupling
+==========
+Coupling refers to the knowledge or information or dependency of another class. It arises when classes are aware of each other.
+If a class has the details information of another class, there is strong coupling. In Java, we use private, protected, and public modifiers
+to display the visibility level of a class, method, and field.
+You can use interfaces for the weaker coupling because there is no concrete implementation.
+
+
+Association
+==============
+Association represents the relationship between the objects. Here, one object can be associated with one object or many objects.
+There can be four types of association between the objects:
+
+One to One
+One to Many
+Many to One, and
+Many to Many
+Let's understand the relationship with real-time examples. For example, One country can have one prime minister (one to one), and a
+prime minister can have many ministers (one to many). Also, many MP's can have one prime minister (many to one), and many ministers can have many departments (many to many).
+
+Association can be undirectional or bidirectional.
+
+Approach to Object Oriented Design:
+====================================
+1. Start with the simple object which can be abstracted into individual classes.
+
+2. Identify all the classes in the requirement specification.
+
+3. Identify the commonalities between all or small groups of classes. Do not force fit generalization where it doesn’t make sense.
+
+4. Keep all the data members private or protected
+
+5. Identify all the member variables and methods the class should have
+
+6. Ensure that the class is fully independent of other classes and contains all the necessary attributes and methods.
+
+7. The methods in the class should be abstract.
+
+8. Don't use the procedural code into a class for the methods in the class.
+
+9. Inherit and extend classes from the base classes when require.
+
+10. Define the "Has-A" or "Uses-A" relationships among the classes
+
+
+Some important links:
+https://fdhgjhjhukj.medium.com/object-oriented-programming-with-real-world-example-63f69f917d62
+
+important keywords:
+=====================
+static
+=======
+https://www.youth4work.com/Talent/Core-Java/Forum/119567-wat-is-the-use-of-a-static-keyword
+
+virtual
+=======
+https://www.codeproject.com/Questions/270054/why-virtual-keyword-is-used
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@ package Algorithms.sorting;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
@@ -18,6 +19,7 @@ public class TopologicalSortUsingStack {
 	 * Class to represent a vertex in a graph
 	 */
 	static class Node implements Comparator<Node> {
+
 		int id;
 		List<Node> adj = new ArrayList<>();
 		int inDegree = 0;
@@ -54,6 +56,8 @@ public class TopologicalSortUsingStack {
 	}
 
 	public static void main(String[] args) {
+
+		LinkedList<Integer> p = new LinkedList<>();
 		// number of vertex
 		int n = scanner.nextInt();
 
