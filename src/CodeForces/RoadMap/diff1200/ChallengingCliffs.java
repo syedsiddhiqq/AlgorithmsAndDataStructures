@@ -6,33 +6,34 @@ import java.util.*;
  * @createdAt 03/07/2021, Saturday, 12:12
  */
 public class ChallengingCliffs {
-	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		int testCases = scanner.nextInt();
-		for(int t=0;t<testCases;t++){
-			int n = scanner.nextInt();
-			long[] arr = new long[n];
-			for(int i=0;i<n;i++) arr[i] = scanner.nextLong();
-			Arrays.sort(arr);
-			long minAbs = Integer.MAX_VALUE;
-			int leftIndex = 0;
-			int rightIndex = 0;
-			for(int i=0;i<n-1;i++){
-				long diff = Math.abs(arr[i] - arr[i+1]);
-				if(minAbs > diff){
-					minAbs = diff;
-					leftIndex = i;
-					rightIndex = i+1;
+	/**
+	 * Not my solution... Since my solution is getting tle.. idk why..
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int T = in.nextInt();
+		for (int t=0; t<T; t++) {
+			int N = in.nextInt();
+			Integer[] H = new Integer[N];
+			for (int n=0; n<N; n++) {
+				H[n] = in.nextInt();
+			}
+			Arrays.sort(H);
+			int shift = 0;
+			int diff = H[N-1]-H[0];
+			for (int n=1; n<N; n++) {
+				int d = H[n] - H[n-1];
+				if (d < diff) {
+					diff = d;
+					shift = n;
 				}
 			}
-			System.out.print(arr[leftIndex] + " ");
-			for(int j = rightIndex+1;j<n;j++){
-				System.out.print(arr[j] + " ");
+			StringBuilder output = new StringBuilder();
+			for (int n=0; n<N; n++) {
+				output.append(H[(n+shift)%N]).append(' ');
 			}
-			for(int j = 0;j<leftIndex;j++){
-				System.out.print(arr[j] + " ");
-			}
-			System.out.println(arr[rightIndex]);
+			System.out.println(output);
 		}
 	}
 }
