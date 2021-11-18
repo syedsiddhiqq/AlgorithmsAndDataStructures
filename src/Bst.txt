@@ -1,0 +1,10 @@
+How to balance a bst?
+
+First sort the tree using inorder traversal
+
+then Convert sorted array to bst.
+
+https://leetcode.com/problems/balance-a-binary-search-tree/discuss/539686/JavaC%2B%2B-Sorted-Array-to-BST-O(N)-Clean-code
+
+----------------------------------------------------------------------------------------------------------------------------------
+

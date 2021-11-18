@@ -11,31 +11,33 @@ public class JustEatIt {
 
 	private static void solve(){
 		int n = fs.nextInt();
-		int[] tastes = new int[n];
-		int totalTaste = 0;
+		long[] tastes = new long[n];
+		long totalTaste = 0;
 		for(int i=0;i<n;i++){
 			tastes[i] = fs.nextInt();
 			totalTaste+= tastes[i];
 		}
 
-		int max = Integer.MIN_VALUE;
-		int count = 0;
-		for(int i=0;i<n;i++){
-			count += 1;
-			int sum = tastes[i];
-			if(count != n){
-				max = Math.max(max,sum);
+		long maxSum = Integer.MIN_VALUE;
+		long sum = 0;
+		for(int i=0;i<n-1;i++){
+			sum += tastes[i];
+			maxSum = Math.max(sum,maxSum);
+			if(sum < 0){
+				sum = 0;
 			}
-			for(int j=i+1;j<n && sum > 0;j++){
-				count += 1;
-				sum += tastes[j];
-				if(count != n){
-					max = Math.max(max,sum);
-				}
-			}
-			count = 0;
 		}
-		System.out.println(totalTaste > max ? "YES" : "NO");
+
+		sum = 0;
+		for(int i=1;i<n;i++){
+			sum += tastes[i];
+			maxSum = Math.max(sum,maxSum);
+			if(sum < 0){
+				sum = 0;
+			}
+		}
+
+		System.out.println(totalTaste > maxSum ? "YES" : "NO");
 	}
 
 	public static void main(String[] args) {

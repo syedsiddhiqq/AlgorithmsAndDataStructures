@@ -68,6 +68,8 @@ public class DZYLovesStrings {
 		char[] str = fs.nextString().toCharArray();
 		int k = fs.nextInt();
 		Letter[] letters = new Letter[26];
+		List<Letter> letterList = new ArrayList<>();;
+		letterList.sort(new Letter());
 		int[] arr = new int[27];
 		for(int i=0;i<26;i++){
 			int temp = fs.nextInt();

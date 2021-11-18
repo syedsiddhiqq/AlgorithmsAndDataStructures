@@ -95,6 +95,15 @@ public class JobDependencyUVA {
 		}
 	}
 
+	private static int lowerBound(Integer[] a, int start, int end, int x) {
+		while (start < end) {
+			int m = (start + end) >>> 1;
+			if (a[m] >= x) end = m;
+			else start = m + 1;
+		}
+		return start;
+	}
+
 	public static void main(String[] args){
 		while(true){
 			int v = fs.nextInt();
