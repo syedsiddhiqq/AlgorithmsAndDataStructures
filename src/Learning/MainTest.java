@@ -18,24 +18,6 @@ import java.util.Set;
 public class MainTest {
 
 	public static void main(String[] args) {
-//		Queue<Integer> q = new LinkedList<>();
-//		Random random = new Random();
-//		List<Integer> l = new ArrayList<>();
-//		RequestClass requestClass = new RequestClass();
-//		requestClass.setValue(null);
-//
-//		ResponseClass responseClass = new ResponseClass();
-//		responseClass.setInput(requestClass.getValue());
-//
-//		System.out.println(responseClass.getInput());
 
-//		EnumLearning enumLearning =  new EnumLearning();
-//		enumLearning.setTypes(Types.NEW);
-//		System.out.println(enumLearning.getTypes());
-
-		Set<DataClass> datas =  new HashSet<>();
-		datas.add(new DataClass(1,"syed"));
-		datas.add(new DataClass(2,"syed"));
-		System.out.println(datas.size());
 	}
 }

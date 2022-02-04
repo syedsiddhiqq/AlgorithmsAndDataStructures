@@ -81,6 +81,7 @@ public class TopologicalSortUsingStack {
 		}
 
 		Stack<Integer> result = new Stack<>();
+		result.sort(Comparator.comparingInt(a -> a));
 
 		for(int i=1;i<=n;i++){
 			if(!nodes[i].visited){
