@@ -1,6 +1,6 @@
 package CodeForces.RoadMap.D2_A;
 
-import javafx.util.Pair;
+
 
 import java.util.*;
 import java.io.*;
