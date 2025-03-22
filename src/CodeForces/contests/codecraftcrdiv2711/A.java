@@ -1,4 +1,4 @@
-//package CodeForces.contests.codecraftcrdiv2711;
+package CodeForces.contests.codecraftcrdiv2711;
 
 import java.io.BufferedReader;
 import java.io.IOException;

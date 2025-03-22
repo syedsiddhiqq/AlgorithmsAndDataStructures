@@ -7,9 +7,9 @@ import java.util.Objects;
  * @createdAt 02/05/2021, Sunday, 02:53
  */
 public class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
+	public int val;
+	public TreeNode left;
+	public TreeNode right;
 
 	TreeNode(int val) {
 		this.val = val;
