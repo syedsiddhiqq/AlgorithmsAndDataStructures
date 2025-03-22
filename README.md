@@ -1,2 +1,2 @@
 # AlgorithmsAndDataStructures
-My day to day algorithms and ds problem solving repo
+My day to day algorithms and datastructures problem solving repo
